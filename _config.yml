@@ -13,20 +13,19 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Bluemix Documentation Starter Kit
+title: IBM Cloud Brazil
 
 # This is used next to the Bluemix logo at the top-left of the site.
 logo_tag: Docs Starter
 
 # NOTE: make sure there’s no trailing slash on your repo URL
-github_repo: https://github.ibm.com/jason-lengstorf/docs-starter
-github_branch: gh-pages
+github_repo: https://github.com/IBMCloudBrazil
+github_branch: master
 
-email: jason.lengstorf@ibm.com
+email: IBMCloudBrazil
 description: > # this means to ignore newlines until "baseurl:"
-  A centralized collection of best practices and guidelines for planning,
-  implementing, and analyzing the data collected through Bluemix’s various
-  analytics tools.
+  A centralized collection of best practices and guidelines for planning and
+  implementing IBM Cloud
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
