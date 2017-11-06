@@ -56,3 +56,5 @@ exclude:
   - bower.json
   - package.json
   - design
+
+theme: jekyll-theme-minimal
