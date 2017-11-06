@@ -4,8 +4,8 @@ default:
   hidden: true
 
 intro:
-  title: Getting Started
-  icon: rocket
+  title: IBM Cloud Private
+  icon: cloud 
 
 content:
   title: Adding and Editing Content
@@ -13,7 +13,7 @@ content:
 
 formatting:
   title: How to Format Content
-  icon: pencil
+  icon: cloud
 
 advanced:
   title: Advanced Content Tools
