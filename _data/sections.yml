@@ -1,0 +1,29 @@
+default:
+  title: Documunt Your Project Like a Freakin’ Pro
+  icon: book
+  hidden: true
+
+intro:
+  title: Getting Started
+  icon: rocket
+
+content:
+  title: Adding and Editing Content
+  icon: sitemap
+
+formatting:
+  title: How to Format Content
+  icon: pencil
+
+advanced:
+  title: Advanced Content Tools
+  icon: wrench
+
+developers:
+  title: Developer Guide
+  icon: code
+
+secret:
+  title: Secret Section...Shhh!
+  icon: lock
+  hidden: true
