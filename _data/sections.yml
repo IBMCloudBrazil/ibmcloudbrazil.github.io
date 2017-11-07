@@ -3,7 +3,7 @@ default:
   icon: book
   hidden: true
 
-intro:
+icp:
   title: IBM Cloud Private
   icon: cloud 
 
