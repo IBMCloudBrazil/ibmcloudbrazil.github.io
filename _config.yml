@@ -16,7 +16,7 @@
 title: IBM Cloud Brazil
 
 # This is used next to the Bluemix logo at the top-left of the site.
-logo_tag: Docs Starter
+logo_tag: Playbook
 
 # NOTE: make sure there’s no trailing slash on your repo URL
 github_repo: https://github.com/IBMCloudBrazil
@@ -25,7 +25,7 @@ github_branch: master
 email: IBMCloudBrazil
 description: > # this means to ignore newlines until "baseurl:"
   A centralized collection of best practices and guidelines for planning and
-  implementing IBM Cloud
+  implementing IBM Cloud 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
