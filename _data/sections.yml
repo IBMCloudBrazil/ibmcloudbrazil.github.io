@@ -7,18 +7,6 @@ icp:
   title: IBM Cloud Private
   icon: cloud 
 
-content:
-  title: Adding and Editing Content
-  icon: sitemap
-
-formatting:
-  title: How to Format Content
-  icon: cloud
-
-advanced:
-  title: Advanced Content Tools
-  icon: wrench
-
 developers:
   title: Developer Guide
   icon: code
