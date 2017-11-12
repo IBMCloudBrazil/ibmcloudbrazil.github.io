@@ -1,11 +1,15 @@
 default:
-  title: Documunt Your Project Like a Freakin’ Pro
+  title: Document Your Project Like a Freakin’ Pro
   icon: book
   hidden: true
 
 icp:
   title: IBM Cloud Private
   icon: cloud 
+
+handson:
+  title: Hands-On 
+  icon: clipboard
 
 developers:
   title: Developer Guide
