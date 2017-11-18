@@ -1,5 +1,5 @@
 ---
-title: Creating an virtual server to run ICP-CE
+title: Creating an virtual server to ICP
 weight: 1
 ---
 
