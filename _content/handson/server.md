@@ -1,5 +1,5 @@
 ---
-title: Create an virtual server
+title: Creating an virtual server to run ICP-CE
 weight: 1
 ---
 
@@ -13,7 +13,7 @@ VirtualBox is the free option to run virtual servers in almost all OS's avaiable
 
 2. Download ICP-LAB template
     - Download ICP-LAB template [here](https://s3-api.wdc-us-geo.objectstorage.softlayer.net/jmbarros-minicloud/icp-lab-stark.ova)
-    - Please check MD5
+    - Please check MD5:
         MD5 = 933c19541b4c41bea85cd3c9f582908a
 
 3. Open the ICP-LAB OVF file 
@@ -23,11 +23,12 @@ VirtualBox is the free option to run virtual servers in almost all OS's avaiable
     - Login: root
     - Password: passw0rd
     - Execute 
-
-    ''''
-    python install_minicloud.py
-    ''''
+````
+python install_minicloud.py
+````
     
+
+
 
 ------------------------
 
