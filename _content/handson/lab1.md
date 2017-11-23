@@ -1,5 +1,5 @@
 ---
-title: HO-101 - Deploying APPs with ICP
+title: LAB1: Deploying APPs with ICP
 weight: 2
 ---
 
