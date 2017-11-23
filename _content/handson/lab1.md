@@ -1,10 +1,10 @@
 ---
-title: LAB1: Deploying APPs with ICP
+title: "LAB1: Deploying Applications with ICP"
 weight: 2
 ---
 
 ## Introduction 
-This part of the tutorial continues to show how you can use Kubernetes to deploy a containerized app In this scenario, the app developer deploys a Hello World version of the app into the Kubernetes cluster that the network administrator created previously.
+This part of the tutorial shows how you can use Kubernetes to deploy a containerized app. In this scenario, the app developer deploys a Hello World version of the app into the Kubernetes cluster that the IT administrator created previously.
 
 Each lesson teaches you how to deploy progressively more complicated versions of similar apps. The diagram shows the tutorial's components of the app deployments, except the fourth part. 
 
@@ -52,7 +52,7 @@ In this lesson, you deploy a single instance of the Hello World app into a clust
   lightbox=false
 %}
 
-*1- Open a Terminal and log into you IBM Cloud Private Container Registry using the username admin and password admin*
+*1- Open a Terminal and log into you IBM Cloud Private Container Registry using the username **admin** and password **admin***
 
 ```
 docker login mycluster.icp:8500
@@ -604,6 +604,7 @@ The package is uninstalled asynchronously. After the uninstallation process is c
 You completed this tutorial. Congratulations!
 
 In this tutorial, you created a cloud-native application in a Kubernetes cluster by completing these tasks:
+
 - [x] Accessing your IBM Cloud Private environment
 - [x] Accessing the IBM Cloud Private Dashboard
 - [x] Deploying the application to the cluster on IBM Cloud Private

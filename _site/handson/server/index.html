@@ -33,7 +33,7 @@
             Get Support
           </a>
           <a class="content__nav-link u-icon u-icon--before u-icon--pencil"
-             href="https://github.com/IBMCloudBrazil/edit/master/_content/icp/overview.md">
+             href="https://github.com/IBMCloudBrazil/edit/master/_content/handson/server.md">
             Edit This Page
           </a>
         </nav>
@@ -60,13 +60,89 @@
 
 
 
-<header class="content__header u-icon u-icon--after u-icon--cloud">
-  <p class="content__section">IBM Cloud Private</p>
-  <h1 class="content__heading">Overview</h1>
+<header class="content__header u-icon u-icon--after u-icon--clipboard">
+  <p class="content__section">Hands-On</p>
+  <h1 class="content__heading">Creating an virtual server to ICP</h1>
 </header>
 
   <section class="content__body-text">
-    
+    <h2 id="using-virtualbox--windows-linux-mac-osx-">Using VirtualBox ( Windows, Linux, MAC OSX )</h2>
+
+<p>VirtualBox is the free option to run virtual servers in almost all OS’s avaiable.</p>
+
+<ol>
+  <li>Download and install the VirtualBox
+    <ul>
+      <li>Download VirtualBox <a href="https://www.virtualbox.org/wiki/Downloads">here</a></li>
+      <li>Install VirtualBox</li>
+    </ul>
+  </li>
+  <li>Download ICP-LAB template
+    <ul>
+      <li>Download ICP-LAB template <a href="https://s3-api.wdc-us-geo.objectstorage.softlayer.net/jmbarros-minicloud/icp-lab-stark.ova">here</a></li>
+      <li>Please check MD5:
+        <div class="highlighter-rouge"><pre class="highlight"><code>MD5 = 933c19541b4c41bea85cd3c9f582908a
+</code></pre>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li>Open the ICP-LAB OVF file
+    <ul>
+      <li>Click in the icp-lab.ofv to open using VIRTUAL BOX</li>
+    </ul>
+  </li>
+  <li>Open the icp-lab-stark console
+    <ul>
+      <li>Login: root</li>
+      <li>Password: passw0rd</li>
+      <li>Execute
+        <div class="highlighter-rouge"><pre class="highlight"><code>python install_minicloud.py
+</code></pre>
+        </div>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="using-vmware-desktop--windows-or-linux-">Using VMware Desktop ( Windows or Linux )</h2>
+
+<ol>
+  <li>
+    <p>Download and install the VMWARE DESKTOP
+Download VirtualBox <a href="https://www.virtualbox.org/wiki/Downloads">here</a>
+Install VMWARE DESKTOP</p>
+  </li>
+  <li>
+    <p>Download ICP-LAB template
+Download ICP-LAB template <a href="">AVAIABLE SOON!!!</a></p>
+  </li>
+  <li>
+    <p>Open the ICP-LAB OVF file 
+Click in the icp-lab.ofv to open using VMware Desktop</p>
+  </li>
+</ol>
+
+<h2 id="using-vmware-fusion-mac-osx">Using VMware Fusion (MAC OSX)</h2>
+
+<ol>
+  <li>
+    <p>Download and install the VMWARE FUSION
+Download VMWARE FUSION <a href="https://www.virtualbox.org/wiki/Downloads">here</a>
+Install VirtualBox</p>
+  </li>
+  <li>
+    <p>Download ICP-LAB template
+Download ICP-LAB template <a href="">AVAIABLE SOON!!!</a></p>
+  </li>
+  <li>
+    <p>Open the ICP-LAB OVF file 
+Click in the icp-lab.ofv to open using VMware Fusion</p>
+  </li>
+</ol>
+
 
 
     
@@ -116,7 +192,7 @@
           
             <li class="links__list-item">
               <a href="/icp/overview/"
-                 class="links__link links__link--selected">
+                 class="links__link ">
                 Overview
               </a>
             </li>
@@ -169,7 +245,7 @@
           
             <li class="links__list-item">
               <a href="/handson/server/"
-                 class="links__link ">
+                 class="links__link links__link--selected">
                 Creating an virtual server to ICP
               </a>
             </li>

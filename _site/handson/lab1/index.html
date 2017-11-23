@@ -33,7 +33,7 @@
             Get Support
           </a>
           <a class="content__nav-link u-icon u-icon--before u-icon--pencil"
-             href="https://github.com/IBMCloudBrazil/edit/master/_content/handson/ho-101.md">
+             href="https://github.com/IBMCloudBrazil/edit/master/_content/handson/lab1.md">
             Edit This Page
           </a>
         </nav>
@@ -62,12 +62,12 @@
 
 <header class="content__header u-icon u-icon--after u-icon--clipboard">
   <p class="content__section">Hands-On</p>
-  <h1 class="content__heading">HO-101 Deploying APPs with ICP</h1>
+  <h1 class="content__heading">LAB1: Deploying Applications with ICP</h1>
 </header>
 
   <section class="content__body-text">
     <h2 id="introduction">Introduction</h2>
-<p>This part of the tutorial continues to show how you can use Kubernetes to deploy a containerized app In this scenario, the app developer deploys a Hello World version of the app into the Kubernetes cluster that the network administrator created previously.</p>
+<p>This part of the tutorial shows how you can use Kubernetes to deploy a containerized app. In this scenario, the app developer deploys a Hello World version of the app into the Kubernetes cluster that the IT administrator created previously.</p>
 
 <p>Each lesson teaches you how to deploy progressively more complicated versions of similar apps. The diagram shows the tutorial’s components of the app deployments, except the fourth part.</p>
 
@@ -103,16 +103,7 @@
 
 <hr />
 
-<h2 id="lesson-1-setting-up-your-cluster-environment">Lesson 1: Setting up your cluster environment</h2>
-<p>Create your Kubernetes cluster, set up your private image registry.</p>
-
-<p><em>1) Open a Terminal and log into you IBM Cloud Private Container Registry using the username admin and password admin</em></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>docker login mycluster.icp:8500
-</code></pre>
-</div>
-
-<h2 id="lesson-2-deploying-single-instance-apps-to-kubernetes-clusters">Lesson 2: Deploying single instance apps to Kubernetes clusters</h2>
+<h2 id="lesson-1-deploying-single-instance-apps-to-kubernetes-clusters">Lesson 1: Deploying single instance apps to Kubernetes clusters</h2>
 <p>In this lesson, you deploy a single instance of the Hello World app into a cluster.</p>
 
 <figure class="figure">
@@ -122,7 +113,7 @@
   </figcaption>
 </figure>
 
-<p><em>1- Open a Terminal and log into you IBM Cloud Private Container Registry using the username admin and password admin</em></p>
+<p><em>1- Open a Terminal and log into you IBM Cloud Private Container Registry using the username <strong>admin</strong> and password <strong>admin</strong></em></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>docker login mycluster.icp:8500
 </code></pre>
@@ -130,7 +121,7 @@
 
 <p><em>2) Clone or download the source code for the Hello world app to your user home directory.</em></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/IBM/container-service-getting-started-wt
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/Osthanes/container-service-getting-started-wt
 </code></pre>
 </div>
 
@@ -143,13 +134,13 @@
 
 <p><em>3) Navigate to the first app directory, Stage1.</em></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>cd container-service-gettingstarted-wt/Stage1
+<div class="highlighter-rouge"><pre class="highlight"><code>cd container-service-getting-started-wt/Stage1
 </code></pre>
 </div>
 
 <p><em>4) Build a Docker image that includes the app files of the Stage1 directory. If need to make a change to the app in the future, repeat these steps to create another version of the image.</em></p>
 
-<p><em>5) Build the image locally and tag it with the path to your private images registry, your namespace that you created in the previous tutorial and a new image name. Tagging the image with the registry information and name tells Docker where to push the image in a later step. Use lowercase alphanumeric characters or underscores (_) only in the image name.</em></p>
+<p><em>5) Build the image locally and tag it with the path to your private images registry. Tagging the image with the registry information and name tells Docker where to push the image in a later step. Use lowercase alphanumeric characters or underscores (_) only in the image name.</em></p>
 
 <p><em>Don’t forget the period (.) at the end of the command. The period tells Docker to look inside the current directory for the Dockerfile to build the image.</em></p>
 
@@ -166,9 +157,10 @@ Successfully built <image_id></image_id></p>
 </code></pre>
 </div>
 
-<p>Output:</p>
+<p><strong>Output:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>The push refers to a repository [mycluster.icp:8500/default/hello-world]          
+<div class="highlighter-rouge"><pre class="highlight"><code>The push refers to a repository [mycluster.icp:8500/default/hello-world] 
+
 ea2ded433ac8: Pushed 
 894eb973f4d3: Pushed 
 788906ca2c7e: Pushed 
@@ -180,40 +172,67 @@ fa18e5ffd316: Pushed
 60a0858edcd5: Pushed 
 b6ca02dfe5e6: Pushed
 1: digest: sha256:0d90cb73288113bde441ae9b8901204c212c8980d6283fb c2ae5d7cf652405 43 size: 2398
+</code></pre>
+</div>
+
+<p>Wait for all the image layers to be pushed before you continue to the next step.</p>
+
+<p><em>7) Log in into the IBM Cloud Private CLI using the username admin and the password admin</em></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>bx pr login -a https://mycluster.icp:8443 --skip-ssl-validation
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Login method invokedAPI endpoint: https://mycluster.icp:8443
+Username&gt; admin
+Password&gt; 
+Authenticating...
+OK
+Select an account:
+1. ICP Account (e771beedxxxxxxd0fab9d432a000f2f)
+Enter a number&gt; 1
+Targeted account: ICP Account (e771beed75ec8fcd0fab9d432a000f2f)
+</code></pre>
+</div>
+
+<p><em>8) Execute the following command to set the context - this enable you to run ICP through the command line interface:</em></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>bx pr clusters
+
+bx pr cluster-config mycluster
 
 </code></pre>
 </div>
-<p>Wait for all the image layers to be pushed before you continue to the next step.</p>
 
-<p><em>7) Create a Kubernetes deployment that is named hello-world-deployment to deploy the app to a pod in your cluster. Deployments are used to manage pods, which include containerized instances of an app. The following deployment deploys the app in single pod.</em></p>
+<p><em>9) Create a Kubernetes deployment that is named hello-world-deployment to deploy the app to a pod in your cluster. Deployments are used to manage pods, which include containerized instances of an app. The following deployment deploys the app in single pod.</em></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>kubectl run hello-world-deployment --image=mycluster.icp:8500/default/hello-world
 </code></pre>
 </div>
 
-<p>Output:</p>
+<p><strong>Output:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>deployment "hello-world-deployment" created
-</code></pre>
-</div>
+<blockquote>
+  <p>deployment “hello-world-deployment” created</p>
+</blockquote>
 
 <p>Because this deployment creates only one instance of the app, the deployment creates more quickly than it does in later lessons where more than one instance of the app is created.</p>
 
-<p><em>8) Make the app accessible to the world by exposing the deployment as a NodePort service. Services apply networking for the app. Because the cluster has one worker node rather than several, load balancing across worker nodes is not needed. Therefore, a NodePort can be used to provide users with external access to the app. The NodePort you expose is the port on which the worker node listens for traffic. In a later step, you see which NodePort was randomly assigned to the service.</em></p>
+<p><em>10) Make the app accessible to the world by exposing the deployment as a NodePort service. Services apply networking for the app. Because the cluster has one worker node rather than several, load balancing across worker nodes is not needed. Therefore, a NodePort can be used to provide users with external access to the app. The NodePort you expose is the port on which the worker node listens for traffic. In a later step, you see which NodePort was randomly assigned to the service.</em></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>kubectl expose deployment/hello-world-deployment --type=NodePort --port=8080 --name=hello-world-service
 </code></pre>
 </div>
 
-<p>Output:</p>
+<p><strong>Output:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>service "hello-world-service" exposed
-</code></pre>
-</div>
+<blockquote>
+  <p>service “hello-world-service” exposed</p>
+</blockquote>
 
 <p>Now that all the deployment work is done, you can check to see how everything turned out.</p>
 
-<p><em>9) To test your app in a browser, get the details to form the URL.</em></p>
+<p><em>11) To test your app in a browser, get the details to form the URL.</em></p>
 
 <p>Get information about the service to see which NodePort was assigned.</p>
 
@@ -221,7 +240,7 @@ b6ca02dfe5e6: Pushed
 </code></pre>
 </div>
 
-<p>Output:</p>
+<p><strong>Output:</strong></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>Name:                     hello-world-service
 Namespace:                kube-system
@@ -245,30 +264,6 @@ Session Affinity:       None No events.
 <p>The NodePorts are randomly assigned when they are generated with the expose command, but within 30000-32767. 
 In this example, the NodePort is 30801.</p>
 
-<p><em>10) Log in into the IBM Cloud Private CLI using the username admin and the password passw0rd</em></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code># bx pr login -a https://mycluster.icp:8443 --skip-ssl-validation
-</code></pre>
-</div>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>Login method invokedAPI endpoint: https://mycluster.icp:8443
-Username&gt; admin
-Password&gt; 
-Authenticating...
-OK
-Select an account:
-1. ICP Account (e771beedxxxxxxd0fab9d432a000f2f)
-Enter a number&gt; 1
-Targeted account: ICP Account (e771beed75ec8fcd0fab9d432a000f2f)
-</code></pre>
-</div>
-
-<p><em>11) Get the public IP address for the worker node in the cluster.</em></p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>bx pr masters mycluster
-</code></pre>
-</div>
-
 <p><em>12) Open a browser and check out the app with the following URL: http://&lt;IP_address&gt;:&lt;NodePort&gt;.</em></p>
 
 <p>With the example values, the URL is <a href="http://192.168.168.168:30801">http://192.168.168.168:30801</a>. When you enter that URL in a browser, you can see the following text.</p>
@@ -282,7 +277,17 @@ Targeted account: ICP Account (e771beed75ec8fcd0fab9d432a000f2f)
 <p>Open the following URL in a browser.<br />
 <a href="https://192.168.168.168:8443/">https://192.168.168.168:8443/</a></p>
 
-<p><em>14) In the Workloads tab, you can see the resources that you created. When you are done exploring the Kubernetes dashboard, use CTRL+C to exit the proxy command.</em></p>
+<p>Login: <strong>admin</strong> 
+Password: <strong>admin</strong></p>
+
+<p><em>14) In the <strong>Workloads</strong> tab, you can see the resources that you created.</em></p>
+
+<figure class="figure">
+  <img class="figure__image  " src="/assets/img/ho-101/picture10.png" alt="" />
+  <figcaption class="figure__caption">
+    
+  </figcaption>
+</figure>
 
 <p>Congratulations! You deployed your first version of the app.<br />
 Too many commands in this lesson? Agreed. How about using a configuration script to do some of the work for you?</p>
@@ -291,7 +296,7 @@ Too many commands in this lesson? Agreed. How about using a configuration script
 
 <hr />
 
-<p>Lesson 2: Running a health check</p>
+<h2 id="lesson-2-running-a-health-check">Lesson 2: Running a health check</h2>
 
 <p>In this lesson, you deploy three instances of the Hello World app into a cluster for higher availability than the first version of the app. Higher availability means that user access is divided between the three instances.</p>
 
@@ -306,12 +311,12 @@ Too many commands in this lesson? Agreed. How about using a configuration script
 
 <p>As defined in the configuration script, Kubernetes can use liveness probes to check whether a container in a pod is running or not. For example, liveness probes might catch deadlocks, where an app is running, but it is unable to make progress. Restarting a container that is in this condition can help to make the app more available despite bugs.</p>
 
-<p>Then, Kubernetes uses readiness probes to know when a container is ready to start accepting traffic again. A pod is considered ready when its container is ready. When the pod is ready, it is started again.</p>
+<p>Then, Kubernetes uses readiness probes to know when a container is ready to start accepting traffic again. A pod is considered ready when its container is ready.</p>
 
 <p>In the Stage2 app, every 15 seconds, the app times out. With a health check configured in the configuration script, containers are re-created if the health check finds an issue with an app.</p>
 
 <p>1) In a command-line utility, navigate to the second app directory, Stage2.</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>cd /home/icpuser/container-service-gettingstarted-wt/Stage2
+<div class="highlighter-rouge"><pre class="highlight"><code>cd /home/ibmdemo/container-service-getting-started-wt/Stage2
 </code></pre>
 </div>
 
@@ -329,10 +334,10 @@ Successfully built <image_id></image_id></p>
 </code></pre>
 </div>
 
-<p>Output:</p>
+<p><strong>Output:</strong></p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>The push refers to a repository 
-[registry.ng.bluemix.net/&lt;namespace&gt;/hello-world] 
+[mycluster.icp:8500/default/hello-world:2] 
 ea2ded433ac8: Pushed 
 894eb973f4d3: Pushed 
 788906ca2c7e: Pushed 
@@ -354,14 +359,16 @@ wt/Stage2/healthcheck.yml file with a text editor.</username_home_directory></p>
 
 <p>a.	In the Deployment section, note the replicas. Replicas are the number of instances of your app. 
 Running three instances makes the app more highly available than just one instance.<br />
-replicas: 3
-b.	Update the details for the image in your private registry.<br />
-image: “ mycluster.icp:8500/default/hello-world:2”
-c.	Note the HTTP liveness probe that checks the health of the container every 5 seconds.  registry.</p>
+replicas: 3</p>
+
+<p>b.	Update the details for the image in your private registry.<br />
+image: “ mycluster.icp:8500/default/hello-world:2”</p>
+
+<p>c.	Note the HTTP liveness probe that checks the health of the container every 5 seconds.  registry.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>livenessProbe:
 httpGet: 
-             path: /healthz
+path: /healthz
 port: 8080
 initialDelaySeconds: 5
 periodSeconds: 5
@@ -372,7 +379,7 @@ periodSeconds: 5
 
 <p>5) Run the configuration script in the cluster. When the deployment and the service are created, the app is available for the users to see.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>kubectl create -f /home/icpuser/containerservice-getting-started-wt/Stage2/healthcheck.yml
+<div class="highlighter-rouge"><pre class="highlight"><code>kubectl create -f /home/ibmdemo/container-service-getting-started-wt/Stage2/healthcheck.yml
 </code></pre>
 </div>
 
@@ -380,14 +387,24 @@ periodSeconds: 5
 
 <div class="highlighter-rouge"><pre class="highlight"><code>deployment "hw-demo-deployment" created 
 service "hw-demo-service" created
-Now that all the deployment work is done, check how everything turned out. You might notice that because more instances are running, things might run a bit slower. 
-6.	Open a browser and check out the app. To form the URL, take the same public IP address that you used in the previous lesson for your worker node and combine it with the NodePort that was specified in the configuration script. With the example values, the URL is http://169.47.227.138:30072. In a browser, you might see the following text. If you do not see this text, don't worry. This app is designed to go up and down. 
-Hello world! Great job getting the second stage up and running!
-a.	You can also check http://169.47.227.138:30072/healthz for status.  
-For the first 10 - 15 seconds, a 200 message is returned, so you know that the app is running successfully. After those 15 seconds, a timeout message is displayed, as is designed in the app.  
- 
-{ "error": "Timeout, Health check error!" }
 </code></pre>
+</div>
+
+<p>Now that all the deployment work is done, check how everything turned out.</p>
+
+<ol>
+  <li>Open a browser and check out the app. To form the URL, take the same public IP address that you used in the previous lesson for your worker node and combine it with the NodePort that was specified in the configuration script. With the example values, the URL is http://192.168.168.168:30072. In a browser, you might see the following text. If you do not see this text, <strong>don’t worry</strong>. This app is designed to go up and down.</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Hello world! Great job getting the second stage up and running!
+</code></pre>
+</div>
+
+<p>a.	You can also check http://192.168.168.168:30072/healthz for status.<br />
+For the first 10 - 15 seconds, a 200 message is returned, so you know that the app is running successfully. After those 15 seconds, a timeout message is displayed, as is designed in the app.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nt">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Timeout, Health check error!"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
 </div>
 
 <p>7) In the Workloads tab, you can see the resources that you created. From this tab, you can continually refresh and see that the health check is working. In the Pods section, you can see how many times the pods are restarted when the containers in them are re-created. If you happen to catch the following error in the dashboard, this message indicates that the health check caught a problem. Give it a few minutes and refresh again. You see the number of restarts changes for each pod.</p>
@@ -398,18 +415,17 @@ Error syncing pod, skipping: failed to "StartContainer" for "hwarmada-container"
 </code></pre>
 </div>
 
-<p>When you are done exploring the Kubernetes dashboard, in your command-line utility, enter CTRL+C to exit the proxy command. 
-Congratulations! You deployed the second version of the app. You had to use fewer commands and learned how health checks work, which is great! The Hello world app passed the test. Now, you can deploy a more useful app to start analyzing press releases. 
+<p>Congratulations! You deployed the second version of the app. You had to use fewer commands and learned how health checks work, which is great! The Hello world app passed the test. Now, you can deploy a more useful app to start analyzing press releases. 
 Ready to delete what you created before you continue? This time, you can use the same configuration script to delete both the resources you created.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>kubectl delete -f home/icpuser/container-servicegetting-started-wt/Stage2/healthcheck.yml
+<div class="highlighter-rouge"><pre class="highlight"><code>kubectl delete -f /home/ibmdemo/container-service-getting-started-wt/Stage2/healthcheck.yml
 </code></pre>
 </div>
 
-<p>Output:</p>
+<p><strong>Output:</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>deployment "hw-demo-deployment" deleted 
-service "hw-demo-service" deleted
+<div class="highlighter-rouge"><pre class="highlight"><code>deployment "hw-demo-deployment" deleted
+service "hw-demo-service" deleted 
 </code></pre>
 </div>
 
@@ -419,7 +435,7 @@ service "hw-demo-service" deleted
 
 <p>In this tutorial, you install and run a cloud-native microservices application on an IBM® Cloud Private platform on Kubernetes. The application implements a simple storefront that displays a catalog of computing devices.</p>
 
-<p>People can search for and buy products from the application’s web interface. For a reference implementation diagram for the application, see Microservices with Kubernetes.</p>
+<p>People can search for and buy products from the application’s web interface. For a reference implementation diagram for the application, see <a href="https://www.ibm.com/cloud/garage/content/architecture/microservices/1_0">Microservices with Kubernetes</a>.</p>
 
 <p>The application is composed of several microservices. With microservices, an application can be partitioned into smaller independent services that communicate with each other. This structure allows for the application to be developed, deployed, and managed by different teams. When you implement microservices and incorporate the Circuit Breaker pattern, your application can remain partially operational even when one of the microservices is unavailable.</p>
 
@@ -443,17 +459,17 @@ service "hw-demo-service" deleted
   <li>Access to an operational IBM Cloud Private cluster.</li>
 </ul>
 
-<h2 id="task-1-access-the-ibm-cloud-private-dashboard">Task 1: Access the IBM Cloud Private Dashboard</h2>
+<h2 id="task-31-access-the-ibm-cloud-private-dashboard">Task 3.1: Access the IBM Cloud Private Dashboard</h2>
 
 <p>In this task, you connect to an IBM Cloud Private cluster and log in to the IBM Cloud Private Dashboard.</p>
 
-<p>1) In the Desktop node remote session, open a web browser and go to <a href="https://192.168.168.168:8443">https://192.168.168.168:8443</a></p>
+<p>1) Open a web browser and go to <a href="https://192.168.168.168:8443">https://192.168.168.168:8443</a></p>
 
 <p>Note: If you see a Your connection is not secure message, click Advanced and then click Add Exception to add the security exception.</p>
 
-<p>2) Log in to the IBM Cloud Private Dashboard by typing admin for the user name and admin.</p>
+<p>2) Log in to the IBM Cloud Private Dashboard by typing admin for the user name and admin for password.</p>
 
-<h2 id="task-2-deploy-the-cloud-native-microservices-application-to-ibm-cloud-private">Task 2: Deploy the cloud-native microservices application to IBM Cloud Private</h2>
+<h2 id="task-32-deploy-the-cloud-native-microservices-application-to-ibm-cloud-private">Task 3.2: Deploy the cloud-native microservices application to IBM Cloud Private</h2>
 
 <p>IBM Cloud Private contains integration with Helm that you can use to install the application without a command line. To complete this task, you must be logged in as an administrator.</p>
 
@@ -472,9 +488,13 @@ service "hw-demo-service" deleted
 
 <p>b. For the repository name, enter ibmcase.</p>
 
-<p>c. For the URL, enter https://raw.githubusercontent.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/master/docs/charts/bluecompute.</p>
+<p>c. For the URL, enter:</p>
 
-<p>d. Click Add to add the repository.</p>
+<p><code class="highlighter-rouge">
+ https://raw.githubusercontent.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/master/docs/charts/bluecompute-ce
+</code></p>
+
+<p>d. Click <strong>Add</strong> to add the repository.</p>
 
 <figure class="figure">
   <img class="figure__image  " src="/assets/img/ho-101/picture5.png" alt="" />
@@ -483,70 +503,100 @@ service "hw-demo-service" deleted
   </figcaption>
 </figure>
 
-<p>3) From the menu, click Dashboard. In the upper-right corner of the Dashboard, click the admin user name link, and then click Configure Client. The kubectl configurations are shown. Copy the commands to the clipboard.</p>
-
-<p>4) Open a command line and paste the commands that you copied. Confirm that kubectl is correctly configured by entering this command:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>kubectl config current-context
-</code></pre>
-</div>
-
-<p>Confirm that the output of the command is as follows:
-master.cfc-context.direct</p>
-
-<p>5) Initialize Helm in your cluster by entering this command:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>helm init
-</code></pre>
-</div>
-
-<p>Both the Helm client and the server-side component, tiller, are initialized.</p>
-
-<p>6) Add the Helm package repository that contains the reference application by entering this command:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>helm repo add ibmcase https://raw.githubusercontent.com/ibm-cloud-architecture/refarch-cloudnative-kubernetes/master/docs/charts/bluecompute-ce/
-</code></pre>
-</div>
-
-<p>7) Install the reference application by entering this command:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>helm install --name bluecompute ibmcase/bluecompute-ce
-</code></pre>
-</div>
-
-<p>8) Click the menu and click Workloads &gt; Deployments. The workloads that are running on the cluster are displayed. The application consists of several microservices. Each microservice is deployed to IBM Cloud Private on Kubernetes as a deployment resource. Think of a deployment as the release unit of your application.</p>
-
-<p>9) Type bluecompute to search for the deployed microservices for the application. In the Available column, a value of 1 indicates that deployment was successful. It can take 5 - 8 minutes for the microservices to be deployed to the IBM Cloud Private Kubernetes cluster.</p>
+<p>3) Click <strong>Sync repositories</strong> to update the Catalog</p>
 
 <figure class="figure">
-  <img class="figure__image  " src="/assets/img/ho-101/picture6.png" alt="" />
+  <img class="figure__image  " src="/assets/img/ho-101/picture12.png" alt="" />
   <figcaption class="figure__caption">
     
   </figcaption>
 </figure>
 
-<p>10)	Verify that all the microservices that are part of the bluecompute-ce application are now deployed in the IBM Cloud Private Kubernetes cluster. Then, click default-bluecompute-ce-web to view the details of a microservice.</p>
+<p>4) Go to the <strong>Catalog</strong> and search for the <strong>bluecompute-ce</strong> chart. Click on it to configure a new release of these application.</p>
 
-<p>11)	Scroll to the Expose Details section to see information about how to access the service. Services are Kubernetes resources that define a logical set of Pods and a policy to assess them. The microservices components of the application are exposed as services so that they can communicate with and access each other. For example, the default-bluecompute-ce-web service defines how people can access the web application.</p>
+<figure class="figure">
+  <img class="figure__image  " src="/assets/img/ho-101/picture13.png" alt="" />
+  <figcaption class="figure__caption">
+    
+  </figcaption>
+</figure>
 
-<p>12) To view the information about replication sets and Pods, click the respective links.</p>
+<p>5) On the initial page click the button <strong>Configure</strong> and in the Configuration page type the Release name: <strong>bluecompute</strong> and click the button <strong>Install</strong></p>
 
+<figure class="figure">
+  <img class="figure__image  " src="/assets/img/ho-101/picture14.png" alt="" />
+  <figcaption class="figure__caption">
+    
+  </figcaption>
+</figure>
+
+<p>6) The creation of a Helm Release is completed and the application is being installed. Click on <strong>View Helm Release</strong> to check the progress of the installation.</p>
+
+<figure class="figure">
+  <img class="figure__image  " src="/assets/img/ho-101/picture15.png" alt="" />
+  <figcaption class="figure__caption">
+    
+  </figcaption>
+</figure>
+
+<p>7) A Helm Release contains every kind of Kubernetes objects necessary to deploy the application. Click on the release named <strong>bluecompute</strong>. The Relase page contains:</p>
+
+<ul>
+  <li>Service</li>
+  <li>Deployment</li>
+  <li>Job</li>
+  <li>Ingress</li>
+  <li>Secret</li>
+  <li>ConfigMap</li>
+</ul>
+
+<p>Check the status of the deployments. Even if some deployments are not completed, you can access the application. The workloads that are running on the cluster are displayed. The application consists of several microservices. Each microservice is deployed to IBM Cloud Private on Kubernetes as a deployment resource. Think of a deployment as the release unit of your application.</p>
+
+<p>Other concepts important to Kubernetes:</p>
 <ul>
   <li>Pods are groups of containers that are deployed together on the same worker node. A Pod is where the application code, which is packaged as a Docker container, runs in a Kubernetes context.</li>
   <li>A replication set ensures that a specified number of Pod replicas are running.</li>
 </ul>
 
-<p>Next, you verify that the deployed application is functional.
- </p>
-<h2 id="task-3-validate-the-deployment">Task 3: Validate the deployment</h2>
+<p>In the Available column, a value of 1 indicates that deployment was successful. It can take 5 - 8 minutes for the microservices to be deployed to the IBM Cloud Private Kubernetes cluster.</p>
+
+<figure class="figure">
+  <img class="figure__image  " src="/assets/img/ho-101/picture16.png" alt="" />
+  <figcaption class="figure__caption">
+    
+  </figcaption>
+</figure>
+
+<p>Find the <strong>bluecompute-web</strong> service and click on it:</p>
+
+<figure class="figure">
+  <img class="figure__image  " src="/assets/img/ho-101/picture17.png" alt="" />
+  <figcaption class="figure__caption">
+    
+  </figcaption>
+</figure>
+
+<p>8) Services are Kubernetes resources that define a logical set of Pods and a policy to assess them. The microservices components of the application are exposed as services so that they can communicate with and access each other.</p>
+
+<p>On the service details page you can click on the <strong>Node port</strong> to access the running application</p>
+
+<figure class="figure">
+  <img class="figure__image  " src="/assets/img/ho-101/picture18.png" alt="" />
+  <figcaption class="figure__caption">
+    
+  </figcaption>
+</figure>
+
+<p> </p>
+<h2 id="task-33-validate-the-deployment">Task 3.3: Validate the deployment</h2>
 
 <p>Now that application is installed in your Kubernetes cluster, make sure that it’s working as expected.</p>
 
-<p>1) On the Desktop node, open a web browser and go to <a href="https://192.168.168.168/bluecompute">https://192.168.168.168/bluecompute</a>.</p>
+<p>1) If the application isn’t opened yet, open a web browser and go to <a href="https://192.168.168.168/bluecompute">https://192.168.168.168/bluecompute</a>.</p>
 
 <p>Note: If you see a Your connection is not secure message, click Advanced and then click Add Exception to add the security exception.</p>
 
-<p>2) Click BROWSE ITEM CATALOG to load the list of items.</p>
+<p>2) Click <strong>BROWSE ITEM CATALOG</strong> to load the list of items.</p>
 
 <figure class="figure">
   <img class="figure__image  " src="/assets/img/ho-101/picture7.png" alt="" />
@@ -555,7 +605,7 @@ master.cfc-context.direct</p>
   </figcaption>
 </figure>
 
-<p>3) Click Login. Type user for the user name and password for the password.</p>
+<p>3) Click Login. Type <strong>user</strong> for the user name and <strong>password</strong> for the password.</p>
 
 <p>4) Click one of the items to show the item details page.</p>
 
@@ -574,11 +624,11 @@ master.cfc-context.direct</p>
 
 <p>You validated that the application was deployed and is working.
  </p>
-<h2 id="task-4-uninstall-the-deployed-application">Task 4: Uninstall the deployed application</h2>
+<h2 id="task-34-uninstall-the-deployed-application">Task 3.4: Uninstall the deployed application</h2>
 
 <p>You can delete the application from the Kubernetes cluster in the IBM Cloud Private environment by using the Dashboard.</p>
 
-<p>1) On the Desktop node, go to the IBM Cloud Private Dashboard. From the menu, click Workloads &gt; Helm Releases.</p>
+<p>1) Go to the IBM Cloud Private Dashboard. From the menu, click Workloads &gt; Helm Releases.</p>
 
 <p>2) From the menu on the bluecompute row, click Delete.</p>
 
@@ -600,12 +650,13 @@ master.cfc-context.direct</p>
 <p>You completed this tutorial. Congratulations!</p>
 
 <p>In this tutorial, you created a cloud-native application in a Kubernetes cluster by completing these tasks:</p>
+
 <ul>
-  <li>Accessing your IBM Cloud Private environment</li>
-  <li>Accessing the IBM Cloud Private Dashboard</li>
-  <li>Deploying the application to the cluster on IBM Cloud Private</li>
-  <li>Validating the application</li>
-  <li>Uninstalling the application</li>
+  <li>[x] Accessing your IBM Cloud Private environment</li>
+  <li>[x] Accessing the IBM Cloud Private Dashboard</li>
+  <li>[x] Deploying the application to the cluster on IBM Cloud Private</li>
+  <li>[x] Validating the application</li>
+  <li>[x] Uninstalling the application</li>
 </ul>
 
 
@@ -667,12 +718,22 @@ master.cfc-context.direct</p>
 
           
           
+        
+          
+
+          
+          
             <li class="links__list-item">
               <a href="/icp/como_testar/"
                  class="links__link ">
                 Como testar
               </a>
             </li>
+          
+        
+          
+
+          
           
         
       </ul>
@@ -699,9 +760,9 @@ master.cfc-context.direct</p>
           
           
             <li class="links__list-item">
-              <a href="/handson/ho-101/"
-                 class="links__link links__link--selected">
-                HO-101 Deploying APPs with ICP
+              <a href="/handson/server/"
+                 class="links__link ">
+                Creating an virtual server to ICP
               </a>
             </li>
           
@@ -714,6 +775,30 @@ master.cfc-context.direct</p>
           
 
           
+          
+            <li class="links__list-item">
+              <a href="/handson/lab1/"
+                 class="links__link links__link--selected">
+                LAB1: Deploying Applications with ICP
+              </a>
+            </li>
+          
+        
+          
+
+          
+          
+        
+          
+
+          
+          
+            <li class="links__list-item">
+              <a href="/handson/lab2/"
+                 class="links__link ">
+                LAB2: Microservice Builder
+              </a>
+            </li>
           
         
       </ul>
@@ -734,6 +819,16 @@ master.cfc-context.direct</p>
       <ul class="links__list">
 
         
+        
+          
+
+          
+          
+        
+          
+
+          
+          
         
           
 
