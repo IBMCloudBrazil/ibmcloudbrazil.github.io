@@ -11,6 +11,6 @@ weight: 1
 
 
 - ICP Enterprise Edition
-    - to download a list of ICP-CE Containers Image, [click here](https://raw.githubusercontent.com/IBMCloudBrazil/ibmcloudbrazil.github.io/master/_content/toolkit/icp-ee-docker-images.txt).
+    - to download a list of ICP-EE Containers Image, [click here](https://raw.githubusercontent.com/IBMCloudBrazil/ibmcloudbrazil.github.io/master/_content/toolkit/icp-ee-docker-images.txt).
     - update at 27-NOV-2017
 
