@@ -67,16 +67,31 @@
 
   <section class="content__body-text">
     <h2 id="icp-container-images">ICP Container Images</h2>
+<hr />
 
 <ul>
-  <li>ICP-CE
+  <li>ICP Community Edition
     <ul>
       <li>to download a list of ICP-CE Containers Image, <a href="https://raw.githubusercontent.com/IBMCloudBrazil/ibmcloudbrazil.github.io/master/_content/toolkit/icp-ce-docker-images.txt">click here</a>.</li>
       <li>update at 26-NOV-2017</li>
     </ul>
   </li>
+  <li>ICP Enterprise Edition
+    <ul>
+      <li>to download a list of ICP-EE Containers Image, <a href="https://raw.githubusercontent.com/IBMCloudBrazil/ibmcloudbrazil.github.io/master/_content/toolkit/icp-ee-docker-images.txt">click here</a>.</li>
+      <li>update at 27-NOV-2017</li>
+    </ul>
+  </li>
+  <li>How import docker images from a list file
+    <ul>
+      <li>to import all the docker images from the files list, just execute:
+        <div class="highlighter-rouge"><pre class="highlight"><code>cat icp-ce-docker-images.txt | while read -r line; do docker pull "$line"; done
+</code></pre>
+        </div>
+      </li>
+    </ul>
+  </li>
 </ul>
-
 
 
     
@@ -114,6 +129,11 @@
       <ul class="links__list">
 
         
+        
+          
+
+          
+          
         
           
 
@@ -182,6 +202,11 @@
       <ul class="links__list">
 
         
+        
+          
+
+          
+          
         
           
 
@@ -272,6 +297,11 @@
 
           
           
+        
+          
+
+          
+          
             <li class="links__list-item">
               <a href="/toolkit/internals/"
                  class="links__link links__link--selected">
@@ -318,6 +348,11 @@
       <ul class="links__list">
 
         
+        
+          
+
+          
+          
         
           
 
