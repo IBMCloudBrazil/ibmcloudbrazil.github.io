@@ -11,6 +11,10 @@ handson:
   title: Hands-On 
   icon: clipboard
 
+toolkit:
+  title: ToolKit
+  icon: microchip
+
 developers:
   title: Developer Guide
   icon: code
