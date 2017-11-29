@@ -1,21 +1,180 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width,minimum-scale=1,initial-scale=1">
-    <title>IBM Cloud Brazil</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/assets/img/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="/assets/img/favicon/manifest.json">
-    <link rel="mask-icon" href="/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico">
-    <meta name="msapplication-config" content="/assets/img/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="/assets/css/main.css"></link>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title>IBM Cloud Brazil</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/IBMCloudBrazil/assets/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="https://github.com/IBMCloudBrazil/assets/img/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://github.com/IBMCloudBrazil/assets/img/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="https://github.com/IBMCloudBrazil/assets/img/favicon/manifest.json">
+  <link rel="mask-icon" href="https://github.com/IBMCloudBrazil/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://github.com/IBMCloudBrazil/assets/img/favicon/favicon.ico">
+  <meta name="msapplication-config" content="/assets/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://github.com/IBMCloudBrazil/assets/css/main.css"></link>
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="../assets/js/jquery-3.2.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="../assets/css/css.css"></link>
+
+
+</head>
+
+
+
+
+<body>
+  <!-- NAV -->
+  <div class="row nav valign-wrapper"></div>
+  <div class="row nav2 valign-wrapper">
+    <img class="hamburguer left-align" src="images/hamburguer.png">
+    <img class="logo left-align" src="images/CloudPrivate-Text_Logo.svg">
+  </div>
+  <div class="row nav3 valign-wrapper">
+    <h5 class="titulo">
+      <b>COC ICP Installer</b>
+    </h5>
+  </div>
+  <!-- NAV -->
+
+  <!--Menu-->
+  <div class="row menu displaynone ">
+
+    <ul class="collapsible" data-collapsible="accordion">
+      <li class="viewCreate">
+        <div class="collapsible-header">
+          <i class="material-icons">fiber_new</i>Deploy new ICP</div>
+      </li>
+      <li class="viewICPS">
+        <div class="collapsible-header">
+          <i class="material-icons">list</i>Show all available ICP's</div>
+      </li>
+      <li class="refresh">
+        <div class="collapsible-header refresh">
+          <i class="material-icons refresh">refresh</i>Refresh Availables ICP's</div>
+      </li>
+
+    </ul>
+  </div>
+  <!--Menu-->
+
+  <!-- MAIN -->
+
+  <div class="main row">
+    <div class="input-field col s12">
+        
+
+
+  
+  
+  
+    
+  
+    
+      
+      
+
+  
+  
+
+
+
+
+
+
+
+
+<header class="content__header u-icon u-icon--after u-icon--microchip">
+  <p class="content__section">ToolKit</p>
+  <h1 class="content__heading">ICP Internals</h1>
+</header>
+
+  <section class="content__body-text">
+    <h2 id="icp-container-images">ICP Container Images</h2>
+<hr />
+
+<ul>
+  <li>ICP Community Edition
+    <ul>
+      <li>to download a list of ICP-CE Containers Image, <a href="https://raw.githubusercontent.com/IBMCloudBrazil/ibmcloudbrazil.github.io/master/_content/toolkit/icp-ce-docker-images.txt">click here</a>.</li>
+      <li>update at 26-NOV-2017</li>
+    </ul>
+  </li>
+  <li>ICP Enterprise Edition
+    <ul>
+      <li>to download a list of ICP-EE Containers Image, <a href="https://raw.githubusercontent.com/IBMCloudBrazil/ibmcloudbrazil.github.io/master/_content/toolkit/icp-ee-docker-images.txt">click here</a>.</li>
+      <li>update at 27-NOV-2017</li>
+    </ul>
+  </li>
+  <li>How import docker images from a list file
+    <ul>
+      <li>to import all the docker images from the files list, just execute:
+        <div class="highlighter-rouge"><pre class="highlight"><code>cat icp-ce-docker-images.txt | while read -r line; do docker pull "$line"; done
+</code></pre>
+        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+
+    
+
+    
+</section>
+    </div>
+
+  </div>
+
+  <!-- MAIN -->
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body>
     <div class="app-chrome">
       <header class="app-chrome__header">
         <a href="/"
@@ -97,8 +256,7 @@
     
 
     
-  </section>
-
+</section>
       </main>
       <aside class="sidebar app-chrome__sidebar">
   <div class="sidebar__container">
@@ -144,22 +302,22 @@
 
           
           
-        
-          
-
-          
-          
-        
-          
-
-          
-          
             <li class="links__list-item">
               <a href="/icp/overview/"
                  class="links__link ">
                 Overview
               </a>
             </li>
+          
+        
+          
+
+          
+          
+        
+          
+
+          
           
         
           
@@ -217,17 +375,17 @@
 
           
           
+        
+          
+
+          
+          
             <li class="links__list-item">
               <a href="/handson/server/"
                  class="links__link ">
                 Creating an virtual server to ICP
               </a>
             </li>
-          
-        
-          
-
-          
           
         
           
@@ -302,17 +460,17 @@
 
           
           
+        
+          
+
+          
+          
             <li class="links__list-item">
               <a href="/toolkit/internals/"
                  class="links__link links__link--selected">
                 ICP Internals
               </a>
             </li>
-          
-        
-          
-
-          
           
         
           
@@ -420,5 +578,6 @@
       ':35729/livereload.js?snipver=1"></' + 'script>')
     </script>
     
-  </body>
+  </body> -->
+
 </html>

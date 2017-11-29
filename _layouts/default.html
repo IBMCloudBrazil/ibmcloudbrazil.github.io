@@ -1,21 +1,121 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width,minimum-scale=1,initial-scale=1">
-    <title>{{ site.title }}</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ site.github.url }}/assets/img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="{{ site.github.url }}/assets/img/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="{{ site.github.url }}/assets/img/favicon/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="{{ site.github.url }}/assets/img/favicon/manifest.json">
-    <link rel="mask-icon" href="{{ site.github.url }}/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="{{ site.github.url }}/assets/img/favicon/favicon.ico">
-    <meta name="msapplication-config" content="{{ site.github.url }}/assets/img/favicon/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="{{ site.github.url }}/assets/css/main.css"></link>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title>{{ site.title }}</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/IBMCloudBrazil/assets/img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="https://github.com/IBMCloudBrazil/assets/img/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://github.com/IBMCloudBrazil/assets/img/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="https://github.com/IBMCloudBrazil/assets/img/favicon/manifest.json">
+  <link rel="mask-icon" href="https://github.com/IBMCloudBrazil/assets/img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://github.com/IBMCloudBrazil/assets/img/favicon/favicon.ico">
+  <meta name="msapplication-config" content="{{ site.github.url }}/assets/img/favicon/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://github.com/IBMCloudBrazil/assets/css/main.css"></link>
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="../assets/js/jquery-3.2.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="../assets/css/css.css"></link>
+
+
+</head>
+
+
+
+
+<body>
+  <!-- NAV -->
+  <div class="row nav valign-wrapper"></div>
+  <div class="row nav2 valign-wrapper">
+    <img class="hamburguer left-align" src="images/hamburguer.png">
+    <img class="logo left-align" src="images/CloudPrivate-Text_Logo.svg">
+  </div>
+  <div class="row nav3 valign-wrapper">
+    <h5 class="titulo">
+      <b>COC ICP Installer</b>
+    </h5>
+  </div>
+  <!-- NAV -->
+
+  <!--Menu-->
+  <div class="row menu displaynone ">
+
+    <ul class="collapsible" data-collapsible="accordion">
+      <li class="viewCreate">
+        <div class="collapsible-header">
+          <i class="material-icons">fiber_new</i>Deploy new ICP</div>
+      </li>
+      <li class="viewICPS">
+        <div class="collapsible-header">
+          <i class="material-icons">list</i>Show all available ICP's</div>
+      </li>
+      <li class="refresh">
+        <div class="collapsible-header refresh">
+          <i class="material-icons refresh">refresh</i>Refresh Availables ICP's</div>
+      </li>
+
+    </ul>
+  </div>
+  <!--Menu-->
+
+  <!-- MAIN -->
+
+  <div class="main row">
+    <div class="input-field col s12">
+      {{ content }}
+    </div>
+
+  </div>
+
+  <!-- MAIN -->
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body>
     <div class="app-chrome">
       <header class="app-chrome__header">
         <a href="{{ site.github.url }}/"
@@ -50,5 +150,6 @@
       ':35729/livereload.js?snipver=1"></' + 'script>')
     </script>
     {% endif %}
-  </body>
+  </body> -->
+
 </html>
