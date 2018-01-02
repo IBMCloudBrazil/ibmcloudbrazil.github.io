@@ -5,7 +5,11 @@ default:
 
 icp:
   title: IBM Cloud Private
-  icon: cloud 
+  icon: cloud
+
+pre-req:
+  title: Prerequisite
+  icon: tool
 
 handson:
   title: Hands-On 
