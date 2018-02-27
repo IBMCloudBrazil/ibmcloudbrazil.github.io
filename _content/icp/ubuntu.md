@@ -51,25 +51,30 @@ apt-get remove docker docker-engine docker.io
 
 ## Instale o DOCKER-CE em TODOS os servidores
 
+Instale alguns pacotes para instalar o Docker-CE:
+
 ```
 apt-get install \
 apt-transport-https \
 ca-certificates \
 curl \
 software-properties-common
-````
+```
 
+Adicione a GPG:
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-````
+```
 
+Adcione o repositório:
 ```
 add-apt-repository \
 "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
 $(lsb_release -cs) \
 stable”
-````
+```
 
+Instale o Docker-CE
 ```
 apt-get update 
 apt-get install docker-ce
@@ -99,32 +104,36 @@ docker run -e LICENSE=accept \
 -v "$(pwd)":/data ibmcom/icp-inception:2.1.0.1 cp -r cluster /data
 ```
 
-Copie a chave de segurança 
+Copie a chave de segurança: 
+```
 cd /opt/ibm-cloud-private-ce-2.1.0.1/cluster/
 cp ~/.ssh/id_rsa ssh_key
+```
 
 Edite os hosts que serão instalados:
 - no caso do ICP01 coloque o ip do servidor em todos as opções, exemplo:
+
 ```
 [master]
-<ICP01_NODE_IP_ADDRESS>
+ICP01_NODE_IP_ADDRESS
 [worker]
-<ICP01_NODE_IP_ADDRESS>
+ICP01_NODE_IP_ADDRESS>
 [proxy]
-<ICP01_NODE_IP_ADDRESS>
+ICP01_NODE_IP_ADDRESS
 ```
 
 - no caso da configuração com 5 nodes, coloque os servidores dentro de cada role, exemplo:
 
 ```
 [master]
-<master01_node_IP_address>
+master01_node_IP_address
 [worker]
-<worker01_node_1_IP_address>
-<worker02_node_n_IP_address>
+worker01_node_1_IP_address
+worker02_node_n_IP_address
 [proxy]
-<proxy01_node_IP_address>
+proxy01_node_IP_address
 ```
+----------------
 
 ## Inicie a instalação do ICP
 
