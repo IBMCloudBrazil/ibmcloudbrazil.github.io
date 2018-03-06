@@ -1,6 +1,6 @@
 ---
-title: ICP-CE Image
-weight: 2
+title: CentOS + ICP
+weight: 3
 ---
 
 ## Using VirtualBox ( Windows, Linux, MAC OSX )
@@ -34,30 +34,4 @@ python install_minicloud.py
     
 
 
-
-------------------------
-
-## Using VMware Desktop ( Windows or Linux )
-
-1. Download and install the VMWARE DESKTOP
-Download VirtualBox [here](https://www.virtualbox.org/wiki/Downloads)
-Install VMWARE DESKTOP
-
-2. Download ICP-LAB template
-Download ICP-LAB template [AVAIABLE SOON!!!]()
-
-3. Open the ICP-LAB OVF file 
-Click in the icp-lab.ofv to open using VMware Desktop
-
-## Using VMware Fusion (MAC OSX)
-
-1. Download and install the VMWARE FUSION
-Download VMWARE FUSION [here](https://www.virtualbox.org/wiki/Downloads)
-Install VirtualBox
-
-2. Download ICP-LAB template
-Download ICP-LAB template [AVAIABLE SOON!!!]()
-
-3. Open the ICP-LAB OVF file 
-Click in the icp-lab.ofv to open using VMware Fusion
 
