@@ -14,7 +14,7 @@ install:
 
 handson:
   title: Hands-On 
-  icon: clipboard
+  icon: code
 
 toolkit:
   title: ToolKit
@@ -23,6 +23,7 @@ toolkit:
 developers:
   title: Developer Guide
   icon: code
+  hidden: true
 
 secret:
   title: Secret Section...Shhh!

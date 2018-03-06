@@ -1,6 +1,6 @@
 ---
-title: Creating an virtual server to ICP
-weight: 1
+title: ICP-CE Image
+weight: 2
 ---
 
 ## Using VirtualBox ( Windows, Linux, MAC OSX )
