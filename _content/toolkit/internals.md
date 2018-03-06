@@ -11,14 +11,12 @@ weight: 1
     update at 26-NOV-2017
 
     - [ICP Community Edition 2.1.0.1](https://raw.githubusercontent.com/IBMCloudBrazil/ibmcloudbrazil.github.io/master/_content/toolkit/icp-ce-docker-images-2.1.0.1.txt).
-    update at 26-NOV-2017
-
-
+    - update at 26-NOV-2017
 
 
 - ICP Enterprise Edition
     - [ICP Enterprise Edition 2.1.0](https://raw.githubusercontent.com/IBMCloudBrazil/ibmcloudbrazil.github.io/master/_content/toolkit/icp-ee-docker-images.txt).
-    update at 27-NOV-2017
+    - update at 27-NOV-2017
 
 
 - Como importar as imagens docker para o servidor
