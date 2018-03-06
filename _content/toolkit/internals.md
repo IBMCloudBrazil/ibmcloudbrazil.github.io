@@ -15,7 +15,7 @@ weight: 1
 
 
 - ICP Enterprise Edition
-    - [ICP Enterprise Edition 2.1.0](https://raw.githubusercontent.com/IBMCloudBrazil/ibmcloudbrazil.github.io/master/_content/toolkit/icp-ee-docker-images.2.1.0.txt).
+    - [ICP Enterprise Edition 2.1.0](https://raw.githubusercontent.com/IBMCloudBrazil/ibmcloudbrazil.github.io/master/_content/toolkit/icp-ee-docker-images-2.1.0.txt).
         - update at 27-NOV-2017
 
 
