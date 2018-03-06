@@ -6,9 +6,10 @@ default:
 icp:
   title: IBM Cloud Private
   icon: cloud
+  hidden: true
 
-pre-req:
-  title: Prerequisite
+install:
+  title: Como Instalar
   icon: clipboard
 
 handson:

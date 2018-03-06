@@ -1,5 +1,5 @@
 ---
-title: "ICP-CE 2.1.0.1 em Ubuntu 16.04"
+title: "Ubuntu 16.04"
 weight: 1
 ---
 
