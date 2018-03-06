@@ -3,11 +3,6 @@ default:
   icon: book
   hidden: true
 
-icp:
-  title: IBM Cloud Private
-  icon: cloud
-  hidden: true
-
 install:
   title: Como Instalar
   icon: clipboard
@@ -20,10 +15,9 @@ toolkit:
   title: ToolKit
   icon: microchip
 
-developers:
-  title: Developer Guide
-  icon: code
-  hidden: true
+link:
+  title: Links Úteis
+  icon: book
 
 secret:
   title: Secret Section...Shhh!
