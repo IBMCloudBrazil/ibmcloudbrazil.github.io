@@ -1,9 +1,9 @@
 ---
-title: "Ubuntu + ICP"
-weight: 2
+title: "ICP 2.1.0.2 - Testando versão CE"
+weight: 1
 ---
 
-## Usando VirtualBox ( Windows, Linux, MAC OSX )
+## Testando o ICP 2.1.0.2 com VirtualBox
 
 VirtualBox é um opção gratuita para executar servidores virtuais, disponíveis para os principais SO's.
 
@@ -12,5 +12,11 @@ VirtualBox é um opção gratuita para executar servidores virtuais, disponívei
     - Install VirtualBox
 
 2. Faça o download Ubuntu + ICP 
-    - Download OVF [here](http://s3-api.us-geo.objectstorage.softlayer.net/jmbarros-icp-ce/ubuntu/icp-ce-ubuntu.ovf)
-    - Download VMDK [here](http://s3-api.us-geo.objectstorage.softlayer.net/jmbarros-icp-ce/ubuntu/icp-ce-ubuntu-1.vmdk)
+    - Download OVA [here](https://s3-api.us-geo.objectstorage.softlayer.net/jmbarros-icp-ce/icp-2-1-0-2/icp-ce-2-1-0-2.ova)
+3. Abra o arquivo com o virtual BOX 
+    - garanta que esse servidor terá um acesso a internet usando uma rede do tipo bridge 
+    - pelo menos 10 Gb de RAM ( 16 GB recomendado )
+    - pelo menos 2 vCPU's ( 4 vCPUs recomendado)
+4. Log no servidor virtual como:
+    - usuário: root
+    - senha: ibmcloud
