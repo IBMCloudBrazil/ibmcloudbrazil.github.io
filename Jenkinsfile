@@ -9,10 +9,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh '''print "Build"
-apt install docker-ce -y 
-apt install docker -y
-yum install docker-ce'''
+        sh 'print "Build"'
       }
     }
   }
