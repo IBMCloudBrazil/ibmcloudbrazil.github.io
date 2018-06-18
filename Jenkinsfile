@@ -1,11 +1,5 @@
 pipeline {
-  agent {
-    docker {
-      image 'nginx:latest'
-      args '-p 3000:3000'
-    }
-
-  }
+  agent none
   stages {
     stage('build') {
       steps {
