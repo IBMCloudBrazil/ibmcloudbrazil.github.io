@@ -6,14 +6,9 @@ pipeline {
 
   }
   stages {
-    stage('docker') {
+    stage('build') {
       steps {
-        echo 'teste'
-      }
-    }
-    stage('') {
-      steps {
-        sh 'echo "teste"'
+        sh 'echo "builded"'
       }
     }
   }
