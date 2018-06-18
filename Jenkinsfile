@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'apt install docker-ce'
+        sh 'apt install docker-ce -y'
       }
     }
   }
