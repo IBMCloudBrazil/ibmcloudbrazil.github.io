@@ -1,10 +1,9 @@
 pipeline {
-  agent none
+  agent any
   stages {
     stage('build') {
       steps {
-        sh '''print "Build"
-'''
+        sh 'apt install docker-ce'
       }
     }
   }
