@@ -1,5 +1,6 @@
 podTemplate(label: 'mypod',
     volumes: [
+        hostPathVolume(hostPath: '/etc/docker/certs.d', mountPath: '/etc/docker/certs.d'),
         hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
         secretVolume(secretName: 'registry-account', mountPath: '/var/run/secrets/registry-account'),
         configMapVolume(configMapName: 'registry-config', mountPath: '/var/run/configs/registry-config')
@@ -17,10 +18,7 @@ podTemplate(label: 'mypod',
                 #!/bin/bash
                 NAMESPACE=`cat /var/run/configs/registry-config/namespace`
                 REGISTRY=`cat /var/run/configs/registry-config/registry`
-                cp -ar StoreWebApp docker/StoreWebApp
-                cd docker
                 docker build -t \${REGISTRY}/\${NAMESPACE}/bluecompute-ce-web:${env.BUILD_NUMBER} .
-                rm -r StoreWebApp
                 """
             }
             stage('Push Docker Image to Registry') {
@@ -44,15 +42,16 @@ podTemplate(label: 'mypod',
                 set +e
                 NAMESPACE=`cat /var/run/configs/registry-config/namespace`
                 REGISTRY=`cat /var/run/configs/registry-config/registry`
-                kubectl get deployments bluecompute-web
+                DEPLOYMENT=`kubectl --namespace=\${NAMESPACE} get deployments -l app=bluecompute,micro=web-bff -o name`
+                kubectl --namespace=\${NAMESPACE} get \${DEPLOYMENT}
                 if [ \${?} -ne "0" ]; then
                     # No deployment to update
                     echo 'No deployment to update'
                     exit 1
                 fi
                 # Update Deployment
-                kubectl set image deployment/bluecompute-web web=\${REGISTRY}/\${NAMESPACE}/bluecompute-ce-web:${env.BUILD_NUMBER}
-                kubectl rollout status deployment/bluecompute-web
+                kubectl --namespace=\${NAMESPACE} set image \${DEPLOYMENT} web=\${REGISTRY}/\${NAMESPACE}/bluecompute-ce-web:${env.BUILD_NUMBER}
+                kubectl --namespace=\${NAMESPACE} rollout status \${DEPLOYMENT}
                 """
             }
         }
